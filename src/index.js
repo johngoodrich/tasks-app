@@ -34,19 +34,19 @@ let store = createStore(taskReducer, [
     status: 'Not Done'
   },
   {
-    id: 1,
+    id: 4,
     title: 'task 1',
     owner: 'Jim',
     status: 'Not Done'
   },
   {
-    id: 2,
+    id: 5,
     title: 'task 2',
     owner: 'Mike',
     status: 'Done'
   },
   {
-    id: 3,
+    id: 6,
     title: 'task 3',
     owner: 'Joe',
     status: 'Not Done'
