@@ -5,6 +5,9 @@ body {
   padding: 40px 15px;
   text-align: center;
 }
+.template-pad {
+  padding: 40px 15px;
+}
 .starter-template .table {
   text-align: left;
 }

@@ -1,21 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class TasksPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="container">
         <div className="starter-template">
           <h1>Tasks</h1>
           <p className="lead">Here are your tasks.</p>
+          <Link to="/task" className="btn btn-primary" title="Add New Task">
+            <span className="glyphicon glyphicon-plus" /> Add New Task
+          </Link>
           <table className="table table-striped">
             <thead>
               <tr>
-                <th>ID</th>
                 <th>Title</th>
                 <th>Owner</th>
                 <th>Status</th>
@@ -24,7 +23,6 @@ class TasksPage extends React.Component {
             <tbody>
               {this.props.tasks.map(item => (
                 <tr key={item.id}>
-                  <th scope="row">{item.id}</th>
                   <td>{item.title}</td>
                   <td>{item.owner}</td>
                   <td>{item.status}</td>

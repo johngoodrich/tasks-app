@@ -6,6 +6,7 @@ import HomePage from './home/HomePage';
 import Menu from './common/Menu';
 import AboutPage from './about/AboutPage';
 import TasksPage from './tasks/TasksPage';
+import ManageTaskPage from './tasks/ManageTaskPage';
 
 const App = () => (
   <Router>
@@ -14,6 +15,7 @@ const App = () => (
       <Route exact path="/" component={HomePage} />
       <Route path="/about" component={AboutPage} />
       <Route path="/tasks" component={TasksPage} />
+      <Route path="/task" component={ManageTaskPage} />
     </div>
   </Router>
 );
