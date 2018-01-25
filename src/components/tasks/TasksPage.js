@@ -1,8 +1,20 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { deleteTask } from "../../actions/taskActions";
 
 class TasksPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+      owner: ""
+    };
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+  handleDelete = event => {
+    this.props.deleteCurrentTask(event.target.id);
+  };
   render() {
     return (
       <div className="container">
@@ -26,6 +38,15 @@ class TasksPage extends React.Component {
                   <td>{item.title}</td>
                   <td>{item.owner}</td>
                   <td>{item.status}</td>
+                  <td>
+                    <div
+                      onClick={this.handleDelete}
+                      className="btn btn-danger"
+                      id={item.id}
+                    >
+                      X
+                    </div>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -42,4 +63,12 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(TasksPage);
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteCurrentTask: task => {
+      dispatch(deleteTask(task));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TasksPage);

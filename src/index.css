@@ -11,3 +11,6 @@ body {
 .starter-template .table {
   text-align: left;
 }
+div.btn-danger {
+  float: right;
+}
