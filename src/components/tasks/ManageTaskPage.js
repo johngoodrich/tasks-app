@@ -1,6 +1,6 @@
-import React from "react";
-import { addTask, getTasks, editTask } from "../../actions/taskActions";
-import { connect } from "react-redux";
+import React from 'react';
+import { addTask, getTasks, editTask } from '../../actions/taskActions';
+import { connect } from 'react-redux';
 
 const Child = ({ id, length }) => (
   <div>
@@ -13,9 +13,9 @@ class ManageTaskPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      owner: "",
-      status: ""
+      title: '',
+      owner: '',
+      status: ''
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -54,10 +54,10 @@ class ManageTaskPage extends React.Component {
     };
     if (this.props.match.params.id) {
       this.props.editTask(newTask);
-      this.props.history.push("/tasks");
+      this.props.history.push('/tasks');
     } else {
       this.props.addNewTask(newTask);
-      this.props.history.push("/tasks");
+      this.props.history.push('/tasks');
     }
   }
   render() {
@@ -80,9 +80,11 @@ class ManageTaskPage extends React.Component {
         </div>
       );
     } else {
-      <div>
-        <h3>All new tasks will be defaulted to 'Not Started'</h3>
-      </div>;
+      StatusDropdown = (
+        <div>
+          <h3>All new tasks will be defaulted to 'Not Started'</h3>
+        </div>
+      );
     }
     return (
       <div className="container">
@@ -128,7 +130,7 @@ class ManageTaskPage extends React.Component {
                   <span className="glyphicon glyphicon-floppy-disk" /> Save
                 </span>
               ) : (
-                "Please complete form."
+                'Please complete form.'
               )}
             </button>
           </form>
