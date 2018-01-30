@@ -14,3 +14,11 @@ export function addTask(task) {
 export function deleteTask(taskID) {
   return { type: types.DELETE_TASK, taskID };
 }
+
+export function editTask(task) {
+  return { type: types.EDIT_TASK, task };
+}
+
+export function getTasks() {
+  return { type: types.GET_TASKS, payload: null };
+}

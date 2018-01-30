@@ -11,9 +11,14 @@ class TasksPage extends React.Component {
       owner: ""
     };
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
   handleDelete = event => {
     this.props.deleteCurrentTask(event.target.id);
+  };
+  handleEdit = event => {
+    this.props.deleteCurrentTask(event.target.id);
+    // this.props.editCurrentTask(event.target.id);
   };
   render() {
     return (
@@ -27,6 +32,7 @@ class TasksPage extends React.Component {
           <table className="table table-striped">
             <thead>
               <tr>
+                <th />
                 <th>Title</th>
                 <th>Owner</th>
                 <th>Status</th>
@@ -35,6 +41,11 @@ class TasksPage extends React.Component {
             <tbody>
               {this.props.tasks.map(item => (
                 <tr key={item.id}>
+                  <td>
+                    <Link className="btn btn-primary" to={`/task/${item.id}`}>
+                      <span className="glyphicon glyphicon-pencil" />
+                    </Link>
+                  </td>
                   <td>{item.title}</td>
                   <td>{item.owner}</td>
                   <td>{item.status}</td>
